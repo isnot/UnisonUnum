@@ -6,7 +6,7 @@ Launch voicevox engine with container orchestration.
 当ソフトウェアの開発者は、VOICEVOXの作者様とは関係がありません。
 また、公式や公認といったものではなく、あくまで第三者による勝手なものです。
 
-__いまのところ研究開発の途中です。自由に使える状態になっていません。__
+**いまのところ研究開発の途中です。自由に使える状態になっていません。**
 
 VOICEVOXを開発、活用、または連携するソフトウェアの開発を支援する目的で、こちらのソフトウェアを作成しています。
 
@@ -14,10 +14,10 @@ VOICEVOXを開発、活用、または連携するソフトウェアの開発を
 
 以下は目指している目標であり、未実装です。
 
-− VOICEVOX ENGINE を容易な手順で起動する方法を、提供する
-− VOICEVOX ENGINE をDockerコンテナ化して、各種クラウド基盤で動作可能とする
-− VOICEVOX ENGINE をクラスター（複数インスタンスを同時起動して分散処理する）可能として、可用性・応答性を高めることを目指す
-− 開発中の VOICEVOX を、ビルドせずに起動する方法を、提供する
+- VOICEVOX ENGINE を容易な手順で起動する方法を、提供する
+- VOICEVOX ENGINE をDockerコンテナ化して、各種クラウド基盤で動作可能とする
+- VOICEVOX ENGINE をクラスター（複数インスタンスを同時起動して分散処理する）可能として、可用性・応答性を高めることを目指す
+- 開発中の VOICEVOX を、ビルドせずに起動する方法を、提供する
 
 ## 前提条件、環境
 
@@ -51,14 +51,12 @@ Unison と Unum は、それぞれ英語とラテン語の表記になります�
 
 ## Links
 
-### VOICEVOX
-
 - [VOICEVOX](https://voicevox.hiroshiba.jp/)
   - 音声合成ソフトウェア。デスクトップ・アプリケーション。Windows版バイナリ・パッケージを配布しています。
 - [GitHub:VOICEVOX](https://github.com/Hiroshiba/voicevox)
-  − VOICEVOX のGUI部分。オープンソース版。
+  - VOICEVOX のGUI部分。オープンソース版。
 - [GitHub:VOICEVOX ENGINE](https://github.com/Hiroshiba/voicevox_engine)
-  − VOICEVOXの音声合成エンジン。オープンソース版。現状では、これ単独で動くソフトウェアをビルドできない。他のVOICEVOX関連ソフトウェと組み合わせて利用する。
+  - VOICEVOXの音声合成エンジン。オープンソース版。現状では、これ単独で動くソフトウェアをビルドできない。他のVOICEVOX関連ソフトウェと組み合わせて利用する。
 
 VOICEVOX © 2021 Hiroshiba Kazuyuki
 
