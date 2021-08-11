@@ -60,6 +60,11 @@ Unison と Unum は、それぞれ英語とラテン語の表記になります�
 
 VOICEVOX © 2021 Hiroshiba Kazuyuki
 
+他に、以下のリポジトリを参考にしました。ありがとうございます。
+
+- [voicevox_engine:patch-linux-docker](https://github.com/aoirint/voicevox_engine/tree/patch-linux-docker)
+- [voicevox_engine_wine_docker](https://github.com/aoirint/voicevox_engine_wine_docker)
+
 ## Author / Contributors
 
 - [GitHub:@isnot](https://github.com/isnot)
