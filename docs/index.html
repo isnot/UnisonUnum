@@ -1,29 +1,126 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-<meta charset="UTF-8">
-<title>UnisonUnum</title>
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no">
-<meta name="description" content="">
-<meta property="og:type" content="website">
-<meta property="og:title" content="UnisonUnum">
-<meta property="og:locale" content="ja_JP">
-<meta property="article:author" content="isnot">
-<link rel="stylesheet" type="text/css" href="https://unpkg.com/sakura.css/css/sakura.css">
-<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/water.css@2/out/water.css">
-<style>
-  .hidden { display: none; }
-</style>
+  <meta charset="UTF-8">
+  <title>UnisonUnum</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="UnisonUnum">
+  <meta property="og:locale" content="ja_JP">
+  <meta property="article:author" content="isnot">
+  <link rel="stylesheet" type="text/css" href="https://unpkg.com/sakura.css/css/sakura.css">
+  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/water.css@2/out/water.css">
+  <style>
+    .hidden {
+      display: none;
+    }
+  </style>
 </head>
 <body>
   <div id="container">
     <header class="article-header">
       <h1>UnisonUnum</h1>
     </header>
-    <div class="article">
-      <p class="repository">see <a href="https://github.com/isnot/UnisonUnum">GitHub:UnisonUnum</a></p>
+    <article class="entry-content" itemprop="text">
+      <p class="repository">GitHubリポジトリ<a href="https://github.com/isnot/UnisonUnum">UnisonUnum</a></p>
+      <p>Launch voicevox engine with Docker container.</p>
+      <p>音声合成ソフトウェア「<a href="https://voicevox.hiroshiba.jp/" rel="nofollow">VOICEVOX</a>」の関連ツールです。
+        UnisonUnum（当ソフトウェア）の開発者は、VOICEVOXの作者様とは関係がありません。あくまで第三者による勝手なものです。</p>
+      <p><strong>いまのところ研究開発の途中です。自由に使える状態になっていません。</strong></p>
+      <p>VOICEVOXを開発、活用、または連携するソフトウェアの開発を支援する目的で、こちらのソフトウェアを作成しています。</p>
 
-    </div>
+      <h2><a id="user-content-目的" class="anchor" aria-hidden="true" href="#目的"></a>目的</h2>
+      <p>以下は目指している目標であり、未実装です。</p>
+      <ul>
+        <li>VOICEVOX ENGINE を容易な手順で起動する方法を、提供する</li>
+        <li>VOICEVOX ENGINE をDockerコンテナ化して、各種クラウド基盤で動作可能とする</li>
+        <li>VOICEVOX ENGINE をクラスター（複数インスタンスを同時起動して分散処理する）可能として、可用性・応答性を高めることを目指す</li>
+        <li>開発中の VOICEVOX を、ビルドせずに起動する方法を、提供する</li>
+      </ul>
+      <h2><a id="user-content-前提条件環境" class="anchor" aria-hidden="true" href="#前提条件環境"></a>前提条件、環境</h2>
+      <p>基本的には、中上級者向けです。
+        また、開発・研究目的での利用を念頭にしております。
+        大規模な利用や商用利用をするには、さらなる何かが追加で必要になると思われます。</p>
+      <p>Git、GitHub、Docker、コマンドラインでの操作といった技術を使いこなせる方向けです。
+        Windows（WSL2）、macOSで動かすことができるかもしれませんが、当方では検証していません。</p>
+      <h3><a id="user-content-私の開発環境一例" class="anchor" aria-hidden="true" href="#私の開発環境一例"></a>私の開発環境（一例）</h3>
+      <p>Ubuntu 21.04 /
+        Docker 20.10.7 /
+        docker-compose 1.25.0 /
+        Node.js 14.17.4 /
+        npm 7.20.3 /
+        yarn 1.22.11 /
+        Python 3.9.5 /
+        pip 20.3.4 /
+        wine 5.0.3 /
+        git 2.30.2 /
+        vscode 1.57.1 (Flatpak)</p>
+      <h2><a id="user-content-セットアップ" class="anchor" aria-hidden="true" href="#セットアップ"></a>セットアップ</h2>
+      <div class="highlight highlight-source-shell position-relative">
+        <pre>$ git clone https://github.com/isnot/UnisonUnum.git
+        $ <span class="pl-c1">cd</span> UnisonUnum/docker
+        $ cp .env.sample .env <span class="pl-c"><span class="pl-c">#</span> 設定ファイルをコピーで作成する</span>
+        $ vim .env <span class="pl-c"><span class="pl-c">#</span> 設定項目を編集する</span>
+        $ <span class="pl-c1">cd</span> ..
+        $ docker-compose build <span class="pl-c"><span class="pl-c">#</span> 初回は時間がかかります</span></pre>
+      </div>
+      <h2><a id="user-content-使用方法" class="anchor" aria-hidden="true" href="#使用方法"></svg></a>使用方法</h2>
+      <div class="highlight highlight-source-shell position-relative">
+        <pre>$ <span class="pl-c1">cd</span> UnisonUnum/docker
+        $ docker-compose up -d</pre>
+        <div class="zeroclipboard-container position-absolute right-0 top-0">
+        </div>
+      </div>
+      <h2><a id="user-content-命名の由来" class="anchor" aria-hidden="true" href="#命名の由来"></a>命名の由来</h2>
+      <p>ユニゾンとは、2名以上の声や楽器で、同じ音楽（旋律）を奏でることです。
+        Unison と Unum は、それぞれ英語とラテン語の表記になります。
+        読み方は、「ユニゾン−ウヌマ」でしょうか。</p>
+      <p>なお、VOICE と VOX はそれぞれ英語とラテン語で「声」を表す単語であり、それにちなんだ組み合わせ方を考えて、名付けました。</p>
+      <h2><a id="user-content-links" class="anchor" aria-hidden="true" href="#links"></a>Links</h2>
+      <ul>
+        <li><a href="https://voicevox.hiroshiba.jp/" rel="nofollow">VOICEVOX</a>
+          <ul>
+            <li>音声合成ソフトウェア。デスクトップ・アプリケーション。Windows版バイナリ・パッケージを配布しています。</li>
+          </ul>
+        </li>
+        <li><a href="https://github.com/Hiroshiba/voicevox">GitHub:VOICEVOX</a>
+          <ul>
+            <li>VOICEVOX のGUI部分。オープンソース版。</li>
+          </ul>
+        </li>
+        <li><a href="https://github.com/Hiroshiba/voicevox_engine">GitHub:VOICEVOX ENGINE</a>
+          <ul>
+            <li>VOICEVOXの音声合成エンジン。オープンソース版。現状では、これ単独で動くソフトウェアをビルドできない。他のVOICEVOX関連ソフトウェと組み合わせて利用する。</li>
+          </ul>
+        </li>
+      </ul>
+      <p>VOICEVOX © 2021 Hiroshiba Kazuyuki</p>
+      <p>他に、以下のリポジトリを参考にしました。ありがとうございます。</p>
+      <ul>
+        <li><a
+            href="https://github.com/aoirint/voicevox_engine/tree/patch-linux-docker">voicevox_engine:patch-linux-docker</a>
+        </li>
+        <li><a href="https://github.com/aoirint/voicevox_engine_wine_docker">voicevox_engine_wine_docker</a></li>
+      </ul>
+      <h2><a id="user-content-author--contributors" class="anchor" aria-hidden="true"
+          href="#author--contributors"></a>Author / Contributors</h2>
+      <ul>
+        <li><a href="https://github.com/isnot">GitHub:@isnot</a></li>
+      </ul>
+      <h2><a id="user-content-ご支援" class="anchor" aria-hidden="true" href="#ご支援"></a>ご支援</h2>
+      <p>運営にあたって、当プロジェクトおよび作者は、ご支援を歓迎します。
+        GitHub Sponsorsを通じてご支援いただくことが可能です。ただしこれは、当プロジェクトの成果物を利用するための必須事項ではありません。
+        詳細は、お問い合わせください。</p>
+      <h2><a id="user-content-当リポジトリおよびそのコンテンツ全般に関して" class="anchor" aria-hidden="true"
+          href="#当リポジトリおよびそのコンテンツ全般に関して"></a>当リポジトリおよびそのコンテンツ全般に関して</h2>
+      <p>ご意見やご感想、その他メッセージがありましたら、「Issues」か、「Discussions」までお寄せください。（基本的に公開されます。）
+        または私（<a href="https://twitter.com/isnot49662340" rel="nofollow">tw:@isnot</a>）個人宛（TwitterのDM等）にお願します。</p>
+      <p>当サイトは、当該サービスを無保証で提供しており、当該サービスが原因で発生した損害等について、補償等は一切おこないません。
+        当サイトは、当該サービスを原因とする不具合があった場合でも、成果物に関する直接的なサポートを行いません。
+        当サイトのコンテンツは、予告なく変更、移転、削除等が行われることがあります。</p>
+    </article>
   </div>
 </body>
+
 </html>
