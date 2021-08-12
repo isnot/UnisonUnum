@@ -1,10 +1,9 @@
 # UnisonUnum
 
-Launch voicevox engine with container orchestration.
+Launch voicevox engine with Docker container.
 
 音声合成ソフトウェア「[VOICEVOX](https://voicevox.hiroshiba.jp/)」の関連ツールです。
-当ソフトウェアの開発者は、VOICEVOXの作者様とは関係がありません。
-また、公式や公認といったものではなく、あくまで第三者による勝手なものです。
+UnisonUnum（当ソフトウェア）の開発者は、VOICEVOXの作者様とは関係がありません。あくまで第三者による勝手なものです。
 
 **いまのところ研究開発の途中です。自由に使える状態になっていません。**
 
@@ -26,20 +25,39 @@ VOICEVOXを開発、活用、または連携するソフトウェアの開発を
 大規模な利用や商用利用をするには、さらなる何かが追加で必要になると思われます。
 
 Git、GitHub、Docker、コマンドラインでの操作といった技術を使いこなせる方向けです。
-Windows（WSL2）、macOSで動かすことができるかもしれませんが、検証していません。
+Windows（WSL2）、macOSで動かすことができるかもしれませんが、当方では検証していません。
 
 ### 私の開発環境（一例）
 
-Ubuntu 21.04
-Docker 20.10.7
-docker-compose 1.25.0
-Node.js 14.17.4
-npm 7.20.3
-Python 3.9.5
-pip 20.3.4
-wine 5.0.3
-git 2.30.2
+Ubuntu 21.04 /
+Docker 20.10.7 /
+docker-compose 1.25.0 /
+Node.js 14.17.4 /
+npm 7.20.3 /
+yarn 1.22.11 /
+Python 3.9.5 /
+pip 20.3.4 /
+wine 5.0.3 /
+git 2.30.2 /
 vscode 1.57.1 (Flatpak)
+
+## セットアップ
+
+```bash
+$ git clone https://github.com/isnot/UnisonUnum.git
+$ cd UnisonUnum/docker
+$ cp .env.sample .env # 設定ファイルをコピーで作成する
+$ vim .env # 設定項目を編集する
+$ cd ..
+$ docker-compose build # 初回は時間がかかります
+```
+
+## 使用方法
+
+```bash
+$ cd UnisonUnum/docker
+$ docker-compose up -d
+```
 
 ## 命名の由来
 
