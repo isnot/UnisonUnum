@@ -1,0 +1,5 @@
+.git
+.gitignore
+.github/FUNDING.yml
+docs/index.html
+Dockerfile.ignore

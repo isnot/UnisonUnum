@@ -1,0 +1,14 @@
+version: '3'
+
+services:
+  voicevox_engine_wine:
+    image: voicevox_engine_wine
+    build:
+      context: ./voicevox_engine_wine
+      args:
+        - VIRTUAL_PORT=50021
+    ports:
+      - "127.0.0.1:50021:50021"
+    volumes:
+      - ${DIST_DIR}:/opt/voicevox
+    restart: always

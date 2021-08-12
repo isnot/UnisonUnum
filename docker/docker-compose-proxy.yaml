@@ -1,0 +1,36 @@
+version: '3'
+
+services:
+  nginx-proxy:
+    image: nginxproxy/nginx-proxy:alpine
+    container_name: nginx-proxy
+    environment: 
+      - NGINX_PROXY_CONTAINER=nginx_proxy
+    ports:
+      - "50021:50031"
+      - "80:80"
+    volumes:
+      - /var/run/docker.sock:/tmp/docker.sock:ro
+    restart: always
+
+  voicevox_engine_wine:
+    image: voicevox_engine_wine
+    build:
+      context: ./voicevox_engine_wine
+      args:
+        - VIRTUAL_HOST=voicevox_engine_wine.localhost
+        - VIRTUAL_PORT=50031
+    environment:
+      - VIRTUAL_HOST=voicevox_engine_wine.localhost
+      - VIRTUAL_PORT=50031
+    volumes:
+      - ${DIST_DIR}:/opt/voicevox
+    restart: always
+    expose:
+      - 50031
+    depends_on:
+      - nginx-proxy
+  web:
+    image: nginx
+    ports:
+      - "8080:80"
