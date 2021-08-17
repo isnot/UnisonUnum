@@ -6,9 +6,9 @@ services:
     build:
       context: ./voicevox_engine_wine
       args:
-        - VIRTUAL_PORT=50021
+        - VIRTUAL_PORT=${VIRTUAL_PORT}
     ports:
-      - "127.0.0.1:50021:50021"
+      - "127.0.0.1:${VIRTUAL_PORT}:${VIRTUAL_PORT}"
     volumes:
       - ${DIST_DIR}:/opt/voicevox
     restart: always
