@@ -1,14 +1,15 @@
 version: '3'
 
 services:
-  voicevox_engine_wine:
-    image: voicevox_engine_wine
+  voicevox_engine:
+    image: voicevox_engine
     build:
-      context: ./voicevox_engine_wine
+      context: ./voicevox_engine
       args:
         - VIRTUAL_PORT=${VIRTUAL_PORT}
     ports:
       - "127.0.0.1:${VIRTUAL_PORT}:${VIRTUAL_PORT}"
     volumes:
       - ${DIST_DIR}:/opt/voicevox
+      - ${CODE_DIR}:/opt/voicevox_engine
     restart: always
