@@ -19,7 +19,7 @@ COPY /home/naoto/repos/voicevox_engine /opt/voicevox_engine
 
 USER $USERNAME
 WORKDIR /opt/voicevox_engine
-RUN pip3 install -r requirements.txt -r requirements-dev.txt
+RUN pip3 install -r requirements-dev.txt
 
 WORKDIR /opt/voicevox
 ENTRYPOINT []

@@ -1,12 +1,11 @@
 #!/usr/bin/env bash
 PWD=`pwd`
-REPOS_DIR="/home/naoto/repos"
+WORK_DIR="/home/naoto/repos"
 
 # 製品版 VOICEVOX でサーバーを起動
-VOICEVOX_DIR=$REPOS_DIR"/VOICEVOX-0.3.1" # 製品版 VOICEVOX ディレクトリのパス
-CODE_DIRECTORY=$REPOS_DIR"/voicevox_engine" # コードがあるディレクトリのパス
-cd $VOICEVOX_DIR
-/usr/bin/bash -c "PYTHONPATH=$VOICEVOX_DIR python $CODE_DIRECTORY/run.py &"
+VOICEVOX_DIR=$WORK_DIR"/VOICEVOX-0.4.1" # 製品版 VOICEVOX ディレクトリのパス
+cd $WORK_DIR"/voicevox_engine" # コードがあるディレクトリのパス
+/usr/bin/bash -c "python run.py --voicevox_dir=$VOICEVOX_DIR &"
 
 #echo 'voicevox_engine v.'$(cat VERSION.txt)
 #echo 'launch voicevox_engine server. wait for a while...'
@@ -18,4 +17,3 @@ cd $REPOS_DIR/voicevox
 PID2=$!
 wait $PID2
 cd $PWD
-jobs -l
