@@ -10,17 +10,27 @@ ARG GROUPNAME=user
 ARG UID=1000
 ARG GID=1000
 
+ENV TZ Asia/Tokyo
 ENV DEBIAN_FRONTEND=noninteractive
-RUN apt-get update && apt-get install -y libsndfile1 python3 python3-pip
+ENV GIT_SSL_NO_VERIFY=1
+
+RUN apt update
+RUN apt install -qq -y --no-install-recommends \
+    python3 python3-dev python3-wheel python3-pip \
+    build-essential ca-certificates clang curl git \
+    g++-multilib gcc-multilib libasound2-dev libsndfile1 \
+    libcap-dev libcups2-dev libnss3-dev libxss1 libxtst-dev \
+    tzdata
+
 RUN groupadd -g $GID $GROUPNAME && useradd -m -s /bin/bash -u $UID -g $GID $USERNAME
 
-COPY ./start.sh /opt/voicevox/
-COPY /home/naoto/repos/voicevox_engine /opt/voicevox_engine
+COPY ./start.sh /tmp/
+COPY ./requirements.txt /tmp/
+COPY ./requirements-dev.txt /tmp/
+RUN chmod a+x /tmp/start.sh
 
 USER $USERNAME
-WORKDIR /opt/voicevox_engine
-RUN pip3 install -r requirements-dev.txt
-
-WORKDIR /opt/voicevox
+WORKDIR /tmp
+RUN pip3 install -r /tmp/requirements-dev.txt
 ENTRYPOINT []
-CMD ./start.sh
+CMD sh -c ./start.sh
