@@ -1,0 +1,1 @@
+/home/naoto/repos/voicevox_engine/requirements.txt
