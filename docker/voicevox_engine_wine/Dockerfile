@@ -9,4 +9,4 @@ ENV VOICEVOX_DIR ${VOICEVOX_DIR}
 WORKDIR /opt/voicevox
 USER user 
 ENTRYPOINT []
-CMD wine64 ./run.exe --host 0.0.0.0 --port $VIRTUAL_PORT --voicevox_dir=$VOICEVOX_DIR
+CMD wine64 ./run.exe --host 0.0.0.0 --port $VIRTUAL_PORT # --voicevox_dir=$VOICEVOX_DIR
