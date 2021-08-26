@@ -6,10 +6,23 @@ services:
     build:
       context: ./voicevox_engine_wine
       args:
+        - DIST_PORT=${DIST_PORT}
+        - DIST_DIR=${DIST_DIR}
+    ports:
+      - "127.0.0.1:${DIST_PORT}:${DIST_PORT}"
+    volumes:
+      - ${DIST_DIR}:/opt/voicevox
+    restart: always
+
+  voicevox_engine_dev:
+    image: voicevox_engine_dev
+    build:
+      context: ./voicevox_engine_dev
+      args:
         - VIRTUAL_PORT=${VIRTUAL_PORT}
-        - VOICEVOX_DIR=${VOICEVOX_DIR}
     ports:
       - "127.0.0.1:${VIRTUAL_PORT}:${VIRTUAL_PORT}"
     volumes:
       - ${DIST_DIR}:/opt/voicevox
+      - ${CODE_DIR}:/opt/voicevox_engine
     restart: always
